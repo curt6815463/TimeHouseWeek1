@@ -1,0 +1,16 @@
+header{
+  width: 100%;
+  text-align: center;
+}
+ul{
+  background-color: #4A90E2;
+}
+li{
+  margin: 0 4rem;
+}
+ul li{
+  line-height: 4rem;
+  display: inline-block;
+  font-size: 1.4rem;
+  color: #fff;
+}

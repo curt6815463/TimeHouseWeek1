@@ -1,0 +1,12 @@
+.container{
+  width: 620px;
+  margin: 0 auto;
+}
+
+.content .eventCard{
+  background-color:  #F2F2F2;
+  height: 102px;
+}
+.content .cardContainer{
+  display: flex;
+}
