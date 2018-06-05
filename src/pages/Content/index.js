@@ -4,19 +4,19 @@ import './index.css';
 class Content extends Component {
   render() {
     return (
-      <div class="content">
-        <div class="container">
-          <div class="eventCard">
-            <div class="cardContainer">
-              <div>
+      <div className="content">
+        <div className="container">
+          <div className="eventCard">
+            <div className="cardContainer">
+              <div className="checkBox">
                 <input id="checkBox" type="checkbox"></input>
               </div>
-              <div class="eventTitle">Type Something here</div>
-              <div>
-                <img></img>
+              <div className="eventTitle">Type Something here</div>
+              <div className="starIcon">
+                <i className="far fa-star"></i>
               </div>
-              <div>
-                <img></img>
+              <div className="pencilIcon">
+                <i className="fas fa-pencil-alt"></i>
               </div>
 
             </div>

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import '@fortawesome/fontawesome'
+import '@fortawesome/fontawesome-free-solid'
+import '@fortawesome/fontawesome-free-regular'
+import '@fortawesome/fontawesome-free-brands'
 import HeaderSpirit from './pages/HeaderSpirit'
 import Content from './pages/Content'
 class App extends Component {
