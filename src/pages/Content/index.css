@@ -4,12 +4,12 @@
 }
 .content .eventCard{
   background-color:  #F2F2F2;
-  margin-top: 1.5em;
+  margin-top: 10px;
 }
 .content .cardContainer{
   display: flex;
   align-items: center;
-  height: 100px;
+  flex-wrap: wrap;
 }
 .cardContainer .checkBox{
   width: 70px;
@@ -18,6 +18,7 @@
   margin-left: 32px;
 }
 .cardContainer .eventTitle{
+  line-height: 3.2em;
   font-size: 24px;
   width: 430px;
 }
@@ -28,4 +29,14 @@
 .cardContainer .pencilIcon{
   width: 60px;
   font-size: 24px;
+}
+.cardContainer .stateBlock{
+  display: flex;
+  padding-left: 70px;
+  margin-bottom: 1em;
+  font-size: 1rem;
+  color: #757575;
+}
+.stateBlock .iconPadding{
+  padding:0 8px;
 }

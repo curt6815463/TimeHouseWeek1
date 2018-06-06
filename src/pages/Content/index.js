@@ -18,7 +18,18 @@ class Content extends Component {
               <div className="pencilIcon">
                 <i className="fas fa-pencil-alt"></i>
               </div>
-
+              <div className="stateBlock">
+                <div className="calendarIcon">
+                  <i class="far fa-calendar-alt iconPadding"></i>
+                  5/14
+                </div>
+                <div className="fileIcon">
+                  <i class="far fa-file iconPadding"></i>
+                </div>
+                <div className="fileIcon">
+                  <i class="far fa-comment-dots iconPadding"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
