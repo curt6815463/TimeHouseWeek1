@@ -3,10 +3,10 @@
   margin: 0 auto;
 }
 .content .eventCard{
-  background-color:  #F2F2F2;
   margin-top: 10px;
 }
 .content .cardContainer{
+  background-color:  #F2F2F2;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -40,3 +40,6 @@
 .stateBlock .iconPadding{
   padding:0 8px;
 }
+
+
+/* .cardDetailContainer .icon,  */

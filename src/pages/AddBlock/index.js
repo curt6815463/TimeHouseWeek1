@@ -6,7 +6,7 @@ class AddBlock extends Component {
     return (
       <div className="addBlock">
         <div className="plusIcon">
-          <i class="fas fa-plus"></i>
+          <i className="fas fa-plus"></i>
         </div>
         <div className="addWording">
           Add Task
