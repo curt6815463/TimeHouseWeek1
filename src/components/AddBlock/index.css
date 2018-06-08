@@ -1,0 +1,23 @@
+.addBlock{
+  border: 2px solid #c8c8c8;
+  color: #c8c8c8;
+  line-height: 65px;
+  margin: 0 auto;
+  margin-top: 1.5em;
+  width: 620px;
+}
+
+
+.addBlock .plusIcon{
+  font-size: 24px;
+  float: left;
+  padding-left: 1em;
+}
+
+.addBlock .addWording{
+  font-size: 24px;
+  padding-left: 2.5em;
+}
+.addBlock .addWording ::after{
+  clear: left;
+}
