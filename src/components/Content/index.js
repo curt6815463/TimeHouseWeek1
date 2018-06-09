@@ -16,15 +16,15 @@ class Content extends Component {
       <div className="content">
         <div className="container">
           {
-            this.state.events.map((event) => {
+            this.state.events.map((event,index) => {
               return(
                 <div key={event} className="eventCard">
                   <div className="cardContainer">
                     <div className="checkBox">
-                      <input id="checkBox" type="checkbox"></input>
+                      <input id={'checkbox' + index} type="checkbox"></input>
                     </div>
                     <div className="eventTitle">
-                      <label htmlFor="checkBox">{this.state.title}</label>
+                      <label htmlFor={'checkbox' + index}>{this.state.title}</label>
                     </div>
                     <div className="starIcon">
                       <i className="far fa-star"></i>
@@ -46,11 +46,18 @@ class Content extends Component {
                     </div>
                   </div>
                   <div className="cardDetailContainer">
-                    <div className="detail-block">
+                    <div className="detail-block calendar">
                       <div className="icon">
                         <i className="far fa-calendar-alt"></i>
                       </div>
                       <div className="deadline">
+                        <div className="wording">
+                          Deadline
+                        </div>
+                        <div className="calendarInputBlock">
+                          <input></input>
+                          <input></input>
+                        </div>
 
                       </div>
                     </div>
@@ -59,7 +66,12 @@ class Content extends Component {
                         <i className="far fa-file"></i>
                       </div>
                       <div className="file">
-
+                        <div className="wording">
+                          File
+                        </div>
+                        <div className="addFileIcon">
+                          <i class="fas fa-plus-square"></i>
+                        </div>
                       </div>
                     </div>
                     <div className="detail-block comment">
@@ -67,7 +79,12 @@ class Content extends Component {
                         <i className="far fa-comment-dots"></i>
                       </div>
                       <div className="comment">
-
+                        <div className="wording">
+                          Comment
+                        </div>
+                        <div className="commentInput">
+                          <textarea></textarea>
+                        </div>
                       </div>
                     </div>
                   </div>
