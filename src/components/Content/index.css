@@ -94,3 +94,29 @@
   resize: none;
   font-size: 16px;
 }
+
+
+.cardBottonBlock{
+  display: flex;
+  justify-content: center;
+}
+.cardBottonBlock .cancel{
+  text-align: center;
+  width: 50%;
+  background-color: #fdfdfd;
+  color: #D0021B ;
+}
+.cardBottonBlock .save{
+  text-align: center;
+  width: 50%;
+  background-color: #3982D7;
+  color: #ffffff;
+}
+.cardBottonBlock{
+  font-size: 1.5rem;
+}
+.cardBottonBlock span{
+  display: inline-block;
+  padding: 1.2rem 0;
+  margin-left: 0.8rem;
+}

@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-free-brands'
 import HeaderSpirit from './components/HeaderSpirit'
 import Content from './components/Content'
 import AddBlock from './components/AddBlock'
+import './app.css'
 class App extends Component {
   render() {
     return (

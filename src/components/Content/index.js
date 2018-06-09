@@ -7,10 +7,35 @@ class Content extends Component {
     super(props)
     this.state = {
       title:"Type Something here",
-      events:[1,2,3,4,5]
+      // event:[1,2,3,4,5],
+      events:[
+        {
+          complete:true,
+          deadline:{
+            date:"",
+            time:''
+          },
+          file:"",
+          comment:"",
+          important:false
+        },
+        {
+          complete:false,
+          deadline:{
+            date:"",
+            time:''
+          },
+          file:"",
+          comment:"",
+          important:false
+        }
+      ]
     }
   }
 
+  handleChange = (id) => (event) => {
+    
+  }
   render() {
     return (
       <div className="content">
@@ -18,10 +43,10 @@ class Content extends Component {
           {
             this.state.events.map((event,index) => {
               return(
-                <div key={event} className="eventCard">
+                <div key={index} className="eventCard">
                   <div className="cardContainer">
                     <div className="checkBox">
-                      <input id={'checkbox' + index} type="checkbox"></input>
+                      <input id={'checkbox' + index} value={event.complete} onChange={this.handleChange(index)} type="checkbox"></input>
                     </div>
                     <div className="eventTitle">
                       <label htmlFor={'checkbox' + index}>{this.state.title}</label>
@@ -45,6 +70,7 @@ class Content extends Component {
                       </div>
                     </div>
                   </div>
+
                   <div className="cardDetailContainer">
                     <div className="detail-block calendar">
                       <div className="icon">
@@ -70,7 +96,7 @@ class Content extends Component {
                           File
                         </div>
                         <div className="addFileIcon">
-                          <i class="fas fa-plus-square"></i>
+                          <i className="fas fa-plus-square"></i>
                         </div>
                       </div>
                     </div>
@@ -88,6 +114,18 @@ class Content extends Component {
                       </div>
                     </div>
                   </div>
+
+                  <div className="cardBottonBlock">
+                    <div className="cancel">
+                      <i className="fas fa-times"></i>
+                      <span>Cancel</span>
+                    </div>
+                    <div className="save">
+                      <i className="fas fa-plus"></i>
+                      <span>Save</span>
+                    </div>
+                  </div>
+
                 </div>
 
               )
