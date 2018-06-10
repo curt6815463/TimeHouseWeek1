@@ -10,32 +10,37 @@ class Content extends Component {
       // event:[1,2,3,4,5],
       events:[
         {
+          title:"Type Something here",
           complete:true,
-          deadline:{
-            date:"",
-            time:''
-          },
-          file:"",
-          comment:"",
-          important:false
+          deadlineDate:"ssss",
+          deadlineTime:"sss",
+          file:"dd",
+          comment:"deee",
+          important:false,
+          opening:true
         },
         {
-          complete:false,
-          deadline:{
-            date:"",
-            time:''
-          },
+          title:"Type Something here",
+          complete:true,
+          deadlineDate:"",
+          deadlineTime:"",
           file:"",
           comment:"",
-          important:false
+          important:false,
+          opening:true
         }
       ]
     }
   }
 
-  handleChange = (id) => (event) => {
-    
+  handleChange = (index) => (event) => {
+    let events = this.state.events
+    let value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
+    let name = event.target.name
+    events[index][name] = value
+    this.setState({events})
   }
+
   render() {
     return (
       <div className="content">
@@ -46,10 +51,20 @@ class Content extends Component {
                 <div key={index} className="eventCard">
                   <div className="cardContainer">
                     <div className="checkBox">
-                      <input id={'checkbox' + index} value={event.complete} onChange={this.handleChange(index)} type="checkbox"></input>
+                      <input
+                        id={'checkbox' + index}
+                        name="complete"
+                        checked={event.complete}
+                        onChange={this.handleChange(index)}
+                        type="checkbox"
+                      />
                     </div>
                     <div className="eventTitle">
-                      <label htmlFor={'checkbox' + index}>{this.state.title}</label>
+                      <label htmlFor={'checkbox' + index}>{event.title}</label>
+                      <input
+                        name="title"
+                        onChange={this.handleChange(index)}                        
+                      />
                     </div>
                     <div className="starIcon">
                       <i className="far fa-star"></i>
@@ -60,7 +75,7 @@ class Content extends Component {
                     <div className="stateBlock">
                       <div className="calendarIcon">
                         <i className="far fa-calendar-alt iconPadding"></i>
-                        5/14
+                      {event.deadlineDate}{event.deadlineTime}
                       </div>
                       <div className="fileIcon">
                         <i className="far fa-file iconPadding"></i>
@@ -81,8 +96,16 @@ class Content extends Component {
                           Deadline
                         </div>
                         <div className="calendarInputBlock">
-                          <input></input>
-                          <input></input>
+                          <input
+                            name="deadlineDate"
+                            value={event.deadlineDate}
+                            onChange={this.handleChange(index)}
+                          />
+                          <input
+                            name="deadlineTime"
+                            value={event.deadlineTime}
+                            onChange={this.handleChange(index)}
+                          />
                         </div>
 
                       </div>
@@ -97,6 +120,7 @@ class Content extends Component {
                         </div>
                         <div className="addFileIcon">
                           <i className="fas fa-plus-square"></i>
+                          {event.file}
                         </div>
                       </div>
                     </div>
@@ -109,7 +133,11 @@ class Content extends Component {
                           Comment
                         </div>
                         <div className="commentInput">
-                          <textarea></textarea>
+                          <textarea
+                            name="comment"
+                            value={event.comment}
+                            onChange={this.handleChange(index)}
+                          ></textarea>
                         </div>
                       </div>
                     </div>
