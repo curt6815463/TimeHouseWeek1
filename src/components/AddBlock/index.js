@@ -15,7 +15,7 @@ class AddBlock extends Component {
           file:"",
           comment:"",
           important:false,
-          opening:true
+          opening:false
       }
     }
   }
@@ -32,6 +32,16 @@ class AddBlock extends Component {
     let adding = !this.state.adding
     this.setState({adding})
   }
+  save = () => {
+    this.setState({adding:false})
+    this.emitEvents()
+  }
+  emitEvents = () => {
+    console.log(this.state.eventData);
+    this.props.addBlockCallBack(this.state.eventData)
+  }
+
+
   render() {
     return (
       <div>
@@ -42,7 +52,7 @@ class AddBlock extends Component {
               <i className="fas fa-plus"></i>
             </div>
           }
-          
+
           {!this.state.adding &&
             <div
               onClick={this.toggleAdding}
@@ -136,11 +146,14 @@ class AddBlock extends Component {
               </div>
 
               <div className="cardBottonBlock">
-                <div className="cancel">
+                <div
+                  className="cancel"
+                  onClick={this.toggleAdding}>
                   <i className="fas fa-times"></i>
                   <span>Cancel</span>
                 </div>
-                <div className="save">
+                <div className="save"
+                  onClick={this.save}>
                   <i className="fas fa-plus"></i>
                   <span>Save</span>
                 </div>

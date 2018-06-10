@@ -30,6 +30,7 @@ class Content extends Component {
     this.props.contentCallBack(this.state.events)
   }
 
+
   render() {
     return (
       <div className="content">

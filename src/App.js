@@ -31,11 +31,17 @@ class App extends Component {
     this.setState({events})
   }
 
+  addBlockCallBack = (event) => {
+    let events = this.state.events
+    events.push(event)
+    this.setState({events})
+  }
+
   render() {
     return (
       <div className="App">
         <HeaderSpirit></HeaderSpirit>
-        <AddBlock></AddBlock>
+      <AddBlock addBlockCallBack={this.addBlockCallBack}></AddBlock>
         <Content contentCallBack={this.contentCallBack} events={this.state.events}></Content>
 
       {this.state.events[0].title}
