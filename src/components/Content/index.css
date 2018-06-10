@@ -23,6 +23,12 @@
   font-size: 24px;
   width: 430px;
 }
+.eventTitle input{
+  background: none;
+  border: 0;
+  font-size: 2rem;
+  outline: none;
+}
 .cardContainer .starIcon{
   width: 60px;
   font-size: 24px;

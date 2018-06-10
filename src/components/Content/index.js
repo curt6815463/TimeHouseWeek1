@@ -7,7 +7,16 @@ class Content extends Component {
     super(props)
     this.state = {
       title:"Type Something here",
-      // event:[1,2,3,4,5],
+      eventData:{
+          title:"Type Something here",
+          complete:false,
+          deadlineDate:"",
+          deadlineTime:"",
+          file:"",
+          comment:"",
+          important:false,
+          opening:true
+      },
       events:[
         {
           title:"Type Something here",
@@ -66,9 +75,9 @@ class Content extends Component {
                       />
                     </div>
                     <div className="eventTitle">
-                      <label htmlFor={'checkbox' + index}>{event.title}</label>
                       <input
                         name="title"
+                        value={event.title}
                         onChange={this.handleChange(index)}
                       />
                     </div>
