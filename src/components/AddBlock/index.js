@@ -35,10 +35,22 @@ class AddBlock extends Component {
   save = () => {
     this.setState({adding:false})
     this.emitEvents()
+    this.setState({
+      eventData:{
+        title:"Type Something here",
+        complete:false,
+        deadlineDate:"",
+        deadlineTime:"",
+        file:"",
+        comment:"",
+        important:false,
+        opening:false        
+      }
+    })
   }
   emitEvents = () => {
-    console.log(this.state.eventData);
-    this.props.addBlockCallBack(this.state.eventData)
+    let eventData = JSON.parse(JSON.stringify(this.state.eventData))
+    this.props.addBlockCallBack(eventData)
   }
 
 

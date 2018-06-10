@@ -12,18 +12,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      events:[
-        {
-          title:"Type Something here",
-          complete:false,
-          deadlineDate:"",
-          deadlineTime:"",
-          file:"",
-          comment:"",
-          important:false,
-          opening:true
-        }
-      ]
+      events:[]
     }
   }
 
@@ -41,10 +30,10 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderSpirit></HeaderSpirit>
-      <AddBlock addBlockCallBack={this.addBlockCallBack}></AddBlock>
+        <AddBlock addBlockCallBack={this.addBlockCallBack}></AddBlock>
         <Content contentCallBack={this.contentCallBack} events={this.state.events}></Content>
 
-      {this.state.events[0].title}
+
       </div>
     );
   }
