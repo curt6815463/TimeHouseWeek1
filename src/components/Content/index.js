@@ -6,28 +6,38 @@ class Content extends Component {
   constructor(props){
     super(props)
     this.state = {
-      events:props.events
+      events:[],
+      saving:false
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      events:JSON.parse(JSON.stringify(nextProps.events))
+    })
+  }
+
   handleChange = (index) => (event) => {
-    let events = this.state.events
+    let events = JSON.parse(JSON.stringify(this.state.events))
     let value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
     let name = event.target.name
     events[index][name] = value
     this.setState({events})
-    this.emitEvents()
+    // this.emitEvents()
   }
 
   toggleOpening = (index) => {
-    let events = this.state.events
+    let events = JSON.parse(JSON.stringify(this.state.events))
     events[index].opening = !events[index].opening
     this.setState({events})
-    this.emitEvents()
+    // this.emitEvents()
   }
-
-  emitEvents = () => {
+  cancel = () => {
+    this.props.contentCallBack(this.props.events)
+  }
+  save = () => {
     this.props.contentCallBack(this.state.events)
+    // this.forceUpdate()
   }
 
 
@@ -139,11 +149,11 @@ class Content extends Component {
 
                   {event.opening &&
                     <div className="cardBottonBlock">
-                      <div className="cancel">
+                      <div onClick={this.cancel} className="cancel">
                         <i className="fas fa-times"></i>
                         <span>Cancel</span>
                       </div>
-                      <div className="save">
+                      <div onClick={this.save}className="save">
                         <i className="fas fa-plus"></i>
                         <span>Save</span>
                       </div>

@@ -17,13 +17,17 @@ class App extends Component {
   }
 
   contentCallBack = (events) => {
+    // console.log('beforesetate');
     this.setState({events})
+    // console.log('aftersetstate');
   }
 
   addBlockCallBack = (event) => {
     let events = this.state.events
     events.push(event)
+    // console.log('beforesetate');
     this.setState({events})
+    // console.log('aftersetstate');
   }
 
   render() {
