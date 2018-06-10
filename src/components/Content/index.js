@@ -6,39 +6,7 @@ class Content extends Component {
   constructor(props){
     super(props)
     this.state = {
-      title:"Type Something here",
-      eventData:{
-          title:"Type Something here",
-          complete:false,
-          deadlineDate:"",
-          deadlineTime:"",
-          file:"",
-          comment:"",
-          important:false,
-          opening:true
-      },
-      events:[
-        {
-          title:"Type Something here",
-          complete:true,
-          deadlineDate:"ssss",
-          deadlineTime:"sss",
-          file:"dd",
-          comment:"deee",
-          important:false,
-          opening:true
-        },
-        {
-          title:"Type Something here",
-          complete:true,
-          deadlineDate:"",
-          deadlineTime:"",
-          file:"",
-          comment:"",
-          important:false,
-          opening:true
-        }
-      ]
+      events:props.events
     }
   }
 
@@ -48,12 +16,18 @@ class Content extends Component {
     let name = event.target.name
     events[index][name] = value
     this.setState({events})
+    this.emitEvents()
   }
 
   toggleOpening = (index) => {
     let events = this.state.events
     events[index].opening = !events[index].opening
     this.setState({events})
+    this.emitEvents()
+  }
+
+  emitEvents = () => {
+    this.props.contentCallBack(this.state.events)
   }
 
   render() {
@@ -174,10 +148,7 @@ class Content extends Component {
                       </div>
                     </div>
                   }
-
-
                 </div>
-
               )
             })
           }

@@ -1,7 +1,5 @@
 .addBlock{
-  border: 2px solid #c8c8c8;
-  color: #c8c8c8;
-  line-height: 65px;
+  /* border: 2px solid #c8c8c8; */
   margin: 0 auto;
   margin-top: 1.5em;
   width: 620px;
@@ -9,15 +7,152 @@
 
 
 .addBlock .plusIcon{
+  line-height: 70px;
   font-size: 24px;
   float: left;
   padding-left: 1em;
+  color: #c8c8c8;
+
 }
 
 .addBlock .addWording{
+  line-height: 65px;
   font-size: 24px;
   padding-left: 2.5em;
+  border: 2px solid #c8c8c8;
+  background-color: #fff;
+  color: #c8c8c8;
+
 }
 .addBlock .addWording ::after{
   clear: left;
+}
+
+
+
+
+.eventCard{
+  margin-top: 10px;
+}
+.cardContainer{
+  background-color:  #F2F2F2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cardContainer .checkBox{
+  width: 70px;
+}
+.cardContainer .checkBox input{
+  margin-left: 32px;
+}
+.cardContainer .eventTitle{
+  position: relative;
+  line-height: 3.2em;
+  font-size: 24px;
+  width: 430px;
+}
+.eventTitle input{
+  background: none;
+  border: 0;
+  font-size: 2rem;
+  outline: none;
+}
+.cardContainer .starIcon{
+  width: 60px;
+  font-size: 24px;
+}
+.cardContainer .pencilIcon{
+  width: 60px;
+  font-size: 24px;
+}
+.cardContainer .stateBlock{
+  display: flex;
+  padding-left: 70px;
+  margin-bottom: 1em;
+  font-size: 1rem;
+  color: #757575;
+}
+.stateBlock .iconPadding{
+  padding:0 8px;
+}
+.detail-block{
+
+}
+
+/* .cardDetailContainer .icon,  */
+
+.cardDetailContainer{
+  background-color: #F2F2F2;
+  padding: 1.5rem 4.5rem 1rem 4.5rem;
+  border-top: 2px solid #C8C8C8;
+}
+.cardDetailContainer .comment{
+  width: 100%;
+}
+
+.cardDetailContainer .detail-block {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+.cardDetailContainer .icon{
+  width: 25px;
+}
+.cardDetailContainer .wording {
+  font-family: Roboto-Medium;
+  font-size: 20px;
+  color: #000000;
+}
+.cardDetailContainer .calendarInputBlock{
+  margin-top: 1rem;
+}
+.cardDetailContainer .calendarInputBlock input{
+  box-sizing: border-box;
+  width: 11rem;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0 1rem;
+  margin-right: 1rem;
+}
+.cardDetailContainer .addFileIcon{
+  margin-top: 0.5rem;
+  color: #C8C8C8;
+  font-size: 2.5rem;
+}
+.cardDetailContainer .commentInput{
+  margin-top: 1rem;
+}
+.cardDetailContainer .commentInput textarea{
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  width: 100%;
+  height: 7rem;
+  resize: none;
+  font-size: 16px;
+}
+
+
+.cardBottonBlock{
+  display: flex;
+  justify-content: center;
+}
+.cardBottonBlock .cancel{
+  text-align: center;
+  width: 50%;
+  background-color: #fdfdfd;
+  color: #D0021B ;
+}
+.cardBottonBlock .save{
+  text-align: center;
+  width: 50%;
+  background-color: #3982D7;
+  color: #ffffff;
+}
+.cardBottonBlock{
+  font-size: 1.5rem;
+}
+.cardBottonBlock span{
+  display: inline-block;
+  padding: 1.2rem 0;
+  margin-left: 0.8rem;
 }
