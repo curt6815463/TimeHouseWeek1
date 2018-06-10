@@ -12,17 +12,25 @@ class Content extends Component {
   }
 
   componentWillReceiveProps(nextProps){
+    console.log(nextProps.events);
     this.setState({
       events:JSON.parse(JSON.stringify(nextProps.events))
     })
   }
 
   handleChange = (index) => (event) => {
+    let type = event.target.type
     let events = JSON.parse(JSON.stringify(this.state.events))
     let value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
     let name = event.target.name
     events[index][name] = value
-    this.setState({events})
+    this.setState({events},() => {
+      if(type === 'checkbox'){
+        let events = this.props.events
+        events[index].complete = !events[index].complete
+        this.props.contentCallBack(events)
+      }
+    })
     // this.emitEvents()
   }
 
@@ -32,11 +40,15 @@ class Content extends Component {
     this.setState({events})
     // this.emitEvents()
   }
-  cancel = () => {
-    this.props.contentCallBack(this.props.events)
+  cancel = (index) => {
+    let events = this.props.events
+    events[index].opening = false
+    this.props.contentCallBack(events)
   }
-  save = () => {
-    this.props.contentCallBack(this.state.events)
+  save = (index) => {
+    let events = this.state.events
+    events[index].opening = false
+    this.props.contentCallBack(events)
     // this.forceUpdate()
   }
 
@@ -149,11 +161,11 @@ class Content extends Component {
 
                   {event.opening &&
                     <div className="cardBottonBlock">
-                      <div onClick={this.cancel} className="cancel">
+                      <div onClick={() => this.cancel(index)} className="cancel">
                         <i className="fas fa-times"></i>
                         <span>Cancel</span>
                       </div>
-                      <div onClick={this.save}className="save">
+                      <div onClick={() => this.save(index)} className="save">
                         <i className="fas fa-plus"></i>
                         <span>Save</span>
                       </div>

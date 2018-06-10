@@ -12,28 +12,39 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      events:[]
+      events:[],
+      tempEvents:[]
     }
   }
 
   contentCallBack = (events) => {
-    // console.log('beforesetate');
-    this.setState({events})
-    // console.log('aftersetstate');
+    this.setState({events,tempEvents:events})
   }
 
   addBlockCallBack = (event) => {
     let events = this.state.events
     events.push(event)
-    // console.log('beforesetate');
-    this.setState({events})
-    // console.log('aftersetstate');
+    this.setState({events,tempEvents:events})
   }
-
+  filterEvents = (state) => {
+    let filterResult = this.state.tempEvents.filter((event) => {
+      if(state === 'all') return true
+      if(state === 'notComplete' && event.complete === false) return true
+      if(state === 'complete' && event.complete === true) return true
+    })
+    this.setState({events:filterResult})
+  }
   render() {
     return (
       <div className="App">
-        <HeaderSpirit></HeaderSpirit>
+        <header>
+          <ul>
+            <li onClick={() => this.filterEvents('all')}>My Tasks</li>
+            <li onClick={() => this.filterEvents('notComplete')}>In Progress</li>
+            <li onClick={() => this.filterEvents('complete')}>Completed</li>
+          </ul>
+        </header>
+        {/* <HeaderSpirit></HeaderSpirit> */}
         <AddBlock addBlockCallBack={this.addBlockCallBack}></AddBlock>
         <Content contentCallBack={this.contentCallBack} events={this.state.events}></Content>
 
